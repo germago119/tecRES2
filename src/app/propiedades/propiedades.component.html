@@ -1,0 +1,80 @@
+
+x<div class="container d-flex flex-column align-items-center">
+  <h1 class="text-center text-primary py-5">Registro de Propiedades</h1>
+
+  <div *ngIf="show" class="d-flex justify-content-center my-2">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <formly-form
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+        [form]="form"
+      ></formly-form>
+      <button
+        type="submit"
+        class="btn btn-outline-primary submit-button"
+        [disabled]="!form.valid"
+      >
+        Crear
+      </button>
+    </form>
+  </div>
+
+  <div class="container mt-3">
+    <!-- Ecabezado de tabla -->
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-dark bg-transparent">
+          <a class="navbar-brand text-light">Tabla de clientes</a>
+          <form class="form-inline">
+            <button type="button" (click)="showForm()" class="btn">
+              <em
+                class="icon ion-ios-add-circle-outline"
+                style="font-size: 2em;"
+              ></em>
+            </button>
+          </form>
+        </nav>
+      </div>
+    </div>
+    <!-- Tabla -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Precio</th>
+              <th scope="col">Direccion Exacta</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Niveles</th>
+              <th scope="col">Tamaño de terreno</th>
+              <th scope="col">Tamaño de construccion</th>
+              <th scope="col">Cantidad de habitaciones</th>
+              <th scope="col">Cantidad de baños</th>
+              <th scope="col">Cantidad de parqueos</th>
+              <th scope="col">Ubicacion</th>
+              <th scope="col">Cedula de cliente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of clientes">
+              <th scope="row" class="align-middle">{{ data.Precio }}</th>
+              <th scope="row" class="align-middle">{{ data.Direccion_Exacta }}</th>
+              <th scope="row" class="align-middle">{{ data.Titulo }}</th>
+              <th scope="row" class="align-middle">{{ data.Niveles }}</th>
+              <th scope="row" class="align-middle">{{ data.Tamano_Terreno }}</th>
+              <th scope="row" class="align-middle">{{ data.Tamano_Construccion }}</th>
+              <th scope="row" class="align-middle">{{ data.Cant_Habitaciones }}</th>
+              <th scope="row" class="align-middle">{{ data.Cant_Banos }}</th>
+              <th scope="row" class="align-middle">{{ data.Cant_Parqueos }}</th>
+              <th scope="row" class="align-middle">{{ data.Ubicacion }}</th>
+              <th scope="row" class="align-middle">{{ data.Cedula_Cliente }}</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
